@@ -19,6 +19,11 @@ body {
     inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
   text-align: center;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: #1c2631;
 }
 
 .cart {
@@ -44,6 +49,10 @@ body {
 .disabledButton {
   background-color: #d8d8d8;
   cursor: not-allowed;
+}
+
+.disabledButton:hover {
+  background-color: #f5eded;
 }
 
 h1 {
