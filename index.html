@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vue Mastery</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="assets/styles.css" />
@@ -20,7 +21,8 @@
         <div class="product-container">
           <div class="product-image">
             <!-- image goes here -->
-            <img v-bind:src="image" alt="">
+            <img v-bind:src="image" 
+            :class="{ 'out-of-stock-img': inventory === 0 }" alt="sock-img">
           </div>
           <div class="product-info">
             <h1>{{product}}</h1>
@@ -35,7 +37,11 @@
             class="color-circle" :style="{ backgroundColor: variant.color }">
             {{}}
           </div>
-            <button class="button" :class="{'disabledButton': inventory === 0}" v-on:click="addToCart">Add to cart</button>
+            <button class="button" 
+            :class="{'disabledButton': inventory === 0}" 
+            v-on:click="addToCart">
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
