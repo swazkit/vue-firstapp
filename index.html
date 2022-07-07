@@ -21,24 +21,24 @@
         <div class="product-container">
           <div class="product-image">
             <!-- image goes here -->
-            <img v-bind:src="image" 
-            :class="{ 'out-of-stock-img': inventory === 0 }" alt="sock-img">
+            <img v-bind:src="image" alt="sock-img">
           </div>
           <div class="product-info">
-            <h1>{{product}}</h1>
-            <p v-if="inventory > 10">in stock</p>
+            <h1> {{ title }} </h1>
+            <p> {{ sale }} </p>
+            <p v-if="inStock">in stock</p>
             <p v-else-if="inventory <= 10 && inventory > 0">almost sold Out!</p>
             <p v-else>Out of stock</p>
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-            <div v-for="variant in variants" 
-            :key="variant.id" @mouseover="updateImage(variant.image)" 
+            <div v-for="(variant, index) in variants" 
+            :key="variant.id" @mouseover="updateVariant(index)" 
             class="color-circle" :style="{ backgroundColor: variant.color }">
             {{}}
           </div>
             <button class="button" 
-            :class="{'disabledButton': inventory === 0}" 
+            :class="{'disabledButton': inStock === 0}" 
             v-on:click="addToCart">
               Add to cart
             </button>
