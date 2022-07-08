@@ -16,9 +16,11 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{cart}})</div>
+      <div class="cart">Cart({{cart.length}})</div>
 
-      <product-display :premium="premium"></product-display>
+      <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+
+
     </div>
 
     <!-- Import App -->
@@ -26,6 +28,8 @@
 
     <!-- selecting display component -->
     <script src="components/productDisplay.js"></script>
+    <script src="components/reviewForm.js"></script>
+    <script src="components/reviewList.js"></script>
 
     <!-- Mount App -->
     <script>
